@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- SEO/ASO per AST-27 landing-page-copy §SEO note. Lao-default, crawlable. -->
+  <title>One Lao App for Your Counter and Books — SabaiyERP</title>
+  <meta name="description" content="Sell, manage your stock, and file your VAT — in one app, in Lao and in kip. Start free." />
+  <meta name="keywords" content="Lao POS, Lao accounting, VAT filing Laos, SabaiyERP" />
+  
+  <link rel="alternate" hreflang="lo" href="https://astromao.github.io/sabaiy-staging/" />
+  <link rel="alternate" hreflang="en" href="https://astromao.github.io/sabaiy-staging/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://astromao.github.io/sabaiy-staging/" />
+  <link rel="canonical" href="https://astromao.github.io/sabaiy-staging/en/" />
+  <!-- Open Graph (Facebook is the primary channel per AST-22 §7) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="lo_LA" />
+  <meta property="og:title" content="One Lao App for Your Counter and Books — SabaiyERP" />
+  <meta property="og:description" content="Sell, manage your stock, and file your VAT — in one app, in Lao and in kip." />
+  <meta property="og:url" content="https://astromao.github.io/sabaiy-staging/en/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Noto Sans Lao: correct Lao rendering across devices -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --brand: #0f7b6c;        /* SabaiyERP teal — placeholder, UX owns final palette */
+      --brand-dark: #0a5b50;
+      --ink: #14231f;
+      --muted: #5b6b66;
+      --bg: #ffffff;
+      --bg-soft: #f4f8f6;
+      --line: #e2ebe7;
+      --cta: #f4a300;          /* single-CTA accent — high contrast, thumb-reachable */
+      --cta-ink: #23180a;
+      --radius: 14px;
+      --maxw: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: "Noto Sans Lao", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.6;
+      font-size: 17px;
+    }
+    h1, h2, h3 { line-height: 1.28; font-weight: 700; margin: 0 0 .5em; }
+    p { margin: 0 0 1em; }
+    a { color: var(--brand); }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+    /* ---------- Nav (Log in is navigation only, NOT a competing CTA) ---------- */
+    header.nav {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(255,255,255,.94);
+      backdrop-filter: saturate(180%) blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-in { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .brand { font-weight: 900; font-size: 20px; color: var(--brand); letter-spacing: -.02em; }
+    .nav-right { display: flex; align-items: center; gap: 14px; }
+    .nav-login { color: var(--muted); text-decoration: none; font-weight: 500; font-size: 15px; }
+    .btn {
+      display: inline-block; text-decoration: none; font-weight: 700;
+      background: var(--cta); color: var(--cta-ink);
+      padding: 12px 22px; border-radius: var(--radius);
+      box-shadow: 0 2px 0 rgba(0,0,0,.08); border: none; cursor: pointer;
+      font-size: 16px; text-align: center;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-lg { padding: 16px 30px; font-size: 18px; width: 100%; max-width: 360px; }
+    .btn small { display: block; font-weight: 400; font-size: 13px; opacity: .8; margin-top: 2px; }
+    .nav .btn { padding: 9px 16px; font-size: 15px; }
+
+    /* ---------- Hero ---------- */
+    .hero { background: linear-gradient(180deg, var(--bg-soft), #fff); padding: 48px 0 40px; text-align: center; }
+    .hero h1 { font-size: 30px; font-weight: 900; letter-spacing: -.01em; }
+    .hero .sub { font-size: 19px; color: var(--muted); max-width: 640px; margin: 0 auto 26px; }
+    .cta-block { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+    .cta-micro { font-size: 14px; color: var(--muted); }
+
+    /* ---------- Pillar strip ---------- */
+    .pillars { padding: 30px 0; border-bottom: 1px solid var(--line); }
+    .pillar-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+    .pillar { background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 18px; }
+    .pillar .k { font-weight: 700; color: var(--brand-dark); font-size: 15px; margin-bottom: 4px; }
+    .pillar .v { font-size: 16px; }
+
+    /* ---------- Content sections ---------- */
+    section.block { padding: 40px 0; border-bottom: 1px solid var(--line); }
+    section.block h2 { font-size: 24px; }
+    .block .body { color: #2a3b35; max-width: 720px; }
+    ul.feat { list-style: none; padding: 0; margin: 12px 0 0; }
+    ul.feat li { padding: 8px 0 8px 28px; position: relative; }
+    ul.feat li::before { content: "✓"; position: absolute; left: 0; color: var(--brand); font-weight: 900; }
+    .soft { background: var(--bg-soft); }
+    .scope { font-size: 15px; color: var(--muted); font-style: italic; margin-top: 10px; }
+
+    /* ---------- How it works ---------- */
+    .steps { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 8px; }
+    .step { display: flex; gap: 14px; align-items: flex-start; }
+    .step .n { flex: 0 0 34px; height: 34px; border-radius: 50%; background: var(--brand); color: #fff; font-weight: 700; display: grid; place-items: center; }
+
+    /* ---------- Comparison ---------- */
+    .cmp { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 8px; }
+    .cmp .row { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; background: #fff; }
+
+    /* ---------- FAQ ---------- */
+    details { border: 1px solid var(--line); border-radius: var(--radius); padding: 4px 16px; margin-bottom: 10px; background: #fff; }
+    details > summary { cursor: pointer; font-weight: 700; padding: 12px 0; list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    details[open] > summary { border-bottom: 1px solid var(--line); }
+    details .ans { padding: 12px 0; color: #2a3b35; }
+
+    /* ---------- Closing + footer ---------- */
+    .closing { background: var(--brand); color: #fff; text-align: center; padding: 48px 0; }
+    .closing h2 { color: #fff; font-size: 26px; font-weight: 900; }
+    footer { padding: 26px 0 40px; text-align: center; color: var(--muted); font-size: 14px; }
+
+    /* ---------- Sticky mobile CTA (mobile-first, one CTA always in reach) ---------- */
+    .sticky-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(255,255,255,.96); border-top: 1px solid var(--line); backdrop-filter: blur(8px); }
+    .sticky-cta .btn { width: 100%; }
+
+    /* ---------- Responsive (desktop enhancement over mobile base) ---------- */
+    @media (min-width: 760px) {
+      .hero h1 { font-size: 44px; }
+      .hero .sub { font-size: 21px; }
+      .pillar-grid { grid-template-columns: repeat(3, 1fr); }
+      .steps { grid-template-columns: repeat(3, 1fr); }
+      .cmp { grid-template-columns: repeat(3, 1fr); }
+      .sticky-cta { display: none; }
+      body { padding-bottom: 0; }
+    }
+    body { padding-bottom: 76px; } /* room for sticky CTA on mobile */
+    @media (min-width: 760px) { body { padding-bottom: 0; } }
+    .lang-en { color: var(--muted); font-size: 13px; display: block; margin-top: 4px; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  </style>
+  <script>
+    // Staging analytics endpoint — counterapi.dev (free, no-auth public counters)
+    window.SABAIY_ANALYTICS_ENDPOINT = null; // beacon disabled; dataLayer is primary
+    window._SABAIY_COUNTER_NS = 'sabaiy-staging';
+    window._SABAIY_track_counter = function(name) {
+      try {
+        fetch('https://api.counterapi.dev/v1/' + window._SABAIY_COUNTER_NS + '/' + name + '/up', {method:'GET', mode:'no-cors'});
+      } catch(e) {}
+    };
+  </script>
+</head>
+<body>
+  <!-- ================= NAV ================= -->
+  <header class="nav">
+    <div class="wrap nav-in">
+      <div class="brand">SabaiyERP</div>
+      <nav class="nav-right">
+        <!-- Log in = navigation only, not a CTA (copy rule) -->
+        <a class="nav-login" href="/sabaiy-staging/login/" data-cta="login">Log in</a>
+        <a class="btn" href="/sabaiy-staging/signup/" data-cta="start-free" data-cta-location="nav">Start free</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============= 1. HERO ============= -->
+    <section class="hero">
+      <div class="wrap">
+        <h1>One Lao app for your counter and your books</h1>
+        <p class="sub">Sell, manage your stock, and file your VAT — in one app, in Lao and in kip.</p>
+        <div class="cta-block">
+          <a class="btn btn-lg" href="/sabaiy-staging/signup/" data-cta="start-free" data-cta-location="hero">Start free</a>
+          <span class="cta-micro">Sign up yourself · No credit card needed</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= 2. PILLAR STRIP ============= -->
+    <section class="pillars">
+      <div class="wrap">
+        <div class="pillar-grid">
+          <div class="pillar">
+            <div class="k">ລາວແທ້ 100%</div>
+            <div class="v">ໜ້າຈໍພາສາລາວ ແລະ ຄິດໄລ່ເປັນເງິນກີບທຸກຢ່າງ</div>
+          </div>
+          <div class="pillar">
+            <div class="k">ອັນດຽວຄົບ</div>
+            <div class="v">ໜ້າຮ້ານ + ສາງສິນຄ້າ + ບັນຊີ ຢູ່ບ່ອນດຽວ, ເຂົ້າລະບົບເທື່ອດຽວ</div>
+          </div>
+          <div class="pillar">
+            <div class="k">ສ້າງມາເພື່ອອາກອນລາວ</div>
+            <div class="v">ຮູ້ກຳໄລ ແລະ ຍື່ນ VAT ໄດ້ — ສ້າງມາເພື່ອວິທີການເສຍອາກອນຂອງລາວ</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= 3. ALL-IN-ONE ============= -->
+    <section class="block">
+      <div class="wrap">
+        <h2>Your counter and your books, in one app</h2>
+        <div class="body">
+          <p>ຂາຍໜ້າຮ້ານ, ຄຸ້ມຄອງສາງສິນຄ້າ ແລະ ເບິ່ງບັນຊີ — ບໍ່ຕ້ອງເອົາ POS ອັນໜຶ່ງມາຕໍ່ກັບໂປຣແກຣມບັນຊີອີກອັນ, ບໍ່ຕ້ອງສະຫຼັບໄປມາລະຫວ່າງສອງແອັບ. ທຸກຍອດຂາຍ ໄຫຼເຂົ້າສາງສິນຄ້າ ແລະ ບັນຊີ ໃຫ້ອັດຕະໂນມັດ.</p>
+          <ul class="feat">
+            <li>POS ຂາຍໜ້າຮ້ານ ໃຊ້ໄດ້ແມ້ບໍ່ມີເນັດ (offline)</li>
+            <li>ສາງສິນຄ້າລະອຽດ: ຮັບເຂົ້າ, ນັບສາງ, ຫຼາຍສາຂາ</li>
+            <li>ບັນຊີ ແລະ ລາຍງານກຳໄລ-ຂາດທຶນ ອັດຕະໂນມັດ</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= 4. LAO-NATIVE ============= -->
+    <section class="block soft">
+      <div class="wrap">
+        <h2>Built for Lao business — not translated</h2>
+        <div class="body">
+          <p>ໜ້າຈໍອອກແບບເປັນພາສາລາວຕັ້ງແຕ່ຕົ້ນ — ບໍ່ແມ່ນເມນູອັງກິດກ່ອນ. ເງິນທຸກຈຳນວນ ເປັນເງິນກີບເຕັມ — ບໍ່ມີການປັດເສດ, ບໍ່ຕ້ອງແປງສະກຸນເງິນ. ໃບບິນ ແລະ ລາຍງານ ອອກມາໃນຮູບແບບທີ່ຄົນລາວ ແລະ ນັກບັນຊີລາວ ອ່ານເຂົ້າໃຈ.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= 5. TAX-READY (support pillar) ============= -->
+    <section class="block">
+      <div class="wrap">
+        <h2>Know your profit and file your VAT — built for Lao tax</h2>
+        <div class="body">
+          <p>ພໍທຸລະກິດເຈົ້າຮອດຂັ້ນຕ້ອງຈົດທະບຽນ VAT (ຍອດຂາຍ 400 ລ້ານກີບຕໍ່ປີ), ເຈົ້າຕ້ອງມີບັນຊີທີ່ພ້ອມສຳລັບອາກອນ. SabaiyERP ຄິດໄລ່ VAT ຂາອອກ ລົບ VAT ຂາເຂົ້າ, ສະຫຼຸບໃຫ້ເປັນງວດ ພ້ອມຍື່ນ, ແລະ ບອກກຳໄລແທ້ຂອງເຈົ້າ.</p>
+          <p class="scope">ຊ່ວຍໃຫ້ເຈົ້າຮູ້ກຳໄລ ແລະ ພ້ອມຍື່ນ VAT — ບໍ່ໄດ້ມາແທນນັກບັນຊີຂອງເຈົ້າ, ແຕ່ຊ່ວຍວຽກລາວໃຫ້ງ່າຍຂຶ້ນຫຼາຍ.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= 6. HOW IT WORKS ============= -->
+    <section class="block soft">
+      <div class="wrap">
+        <h2>Start selling fast, guided tax setup</h2>
+        <div class="steps">
+          <div class="step"><div class="n">1</div><div>ສະໝັກຟຣີ ແລະ ຕັ້ງຮ້ານຂອງເຈົ້າ</div></div>
+          <div class="step"><div class="n">2</div><div>ເພີ່ມສິນຄ້າ ແລ້ວເລີ່ມຂາຍໜ້າຮ້ານໄດ້ເລີຍ</div></div>
+          <div class="step"><div class="n">3</div><div>ຕັ້ງຄ່າອາກອນ ຕາມຄຳແນະນຳເທື່ອລະຂັ້ນ — ພ້ອມຍື່ນ VAT</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= 7. ONE-APP COMPARISON (brand-neutral) ============= -->
+    <section class="block">
+      <div class="wrap">
+        <h2>Everything in one app — no juggling systems</h2>
+        <div class="cmp">
+          <div class="row">POS ຟຣີທົ່ວໄປ ຂາຍໄດ້ຢ່າງດຽວ — ແລ້ວເຈົ້າຍັງຕ້ອງຈ້າງຄົນເຮັດບັນຊີ ແລະ ອາກອນຕ່າງຫາກ. SabaiyERP ເຮັດທັງສອງ.</div>
+          <div class="row">ບາງແອັບແຍກໜ້າຮ້ານ ແລະ ບັນຊີ ອອກເປັນສອງແອັບ. SabaiyERP ລວມເປັນອັນດຽວ — ຍັງເປັນລາວແທ້.</div>
+          <div class="row">ໂປຣແກຣມຕ່າງປະເທດ ບໍ່ໄດ້ສ້າງມາເພື່ອການຍື່ນອາກອນແບບລາວ. SabaiyERP ສ້າງມາເພື່ອສິ່ງນີ້ໂດຍສະເພາະ.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= 8. PRICING FRAMING (no price points) ============= -->
+    <section class="block soft">
+      <div class="wrap">
+        <h2>Start free. Pay when your business grows.</h2>
+        <div class="body">
+          <p>ໃຊ້ຟຣີໄດ້ຕັ້ງແຕ່ມື້ນີ້ — ບໍ່ຕ້ອງມີບັດເຄຣດິດ. ພໍຮ້ານເຈົ້າໃຫຍ່ຂຶ້ນ, ຄ່ອຍເລືອກແພັກເກັດເສີມ ໃນລາຄາທີ່ຮ້ານລາວຈ່າຍໄຫວ.</p>
+          <div class="cta-block" style="align-items:flex-start">
+            <a class="btn" href="/sabaiy-staging/signup/" data-cta="start-free" data-cta-location="pricing">Start free</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============= 9. FAQ ============= -->
+    <section class="block">
+      <div class="wrap">
+        <h2>Frequently Asked Questions</h2>
+        <details>
+          <summary>SabaiyERP ໃຊ້ຟຣີບໍ?</summary>
+          <div class="ans">ໃຊ້ຟຣີໄດ້ເລີຍ. ມີແພັກເກັດເສີມ ສຳລັບຮ້ານທີ່ໃຫຍ່ຂຶ້ນ.</div>
+        </details>
+        <details>
+          <summary>ໃຊ້ໄດ້ຕອນເນັດຫຼຸດບໍ?</summary>
+          <div class="ans">POS ໜ້າຮ້ານ ໃຊ້ໄດ້ແມ້ບໍ່ມີເນັດ, ພໍມີເນັດຄືນ ຂໍ້ມູນຈະຊິງຄ໌ໃຫ້ເອງ.</div>
+        </details>
+        <details>
+          <summary>ຊ່ວຍເລື່ອງ VAT ໄດ້ແນວໃດ?</summary>
+          <div class="ans">ຄິດໄລ່ VAT ຂາອອກລົບຂາເຂົ້າ ແລະ ສະຫຼຸບເປັນງວດພ້ອມຍື່ນ. ຊ່ວຍໃຫ້ພ້ອມ, ບໍ່ໄດ້ມາແທນນັກບັນຊີ.</div>
+        </details>
+        <details>
+          <summary>ໃຊ້ພາສາລາວ ແລະ ເງິນກີບ ໄດ້ບໍ?</summary>
+          <div class="ans">ໄດ້ — ພາສາລາວ ແລະ ເງິນກີບ ເປັນຄ່າຕັ້ງຕົ້ນ, ບໍ່ແມ່ນຕົວເລືອກເສີມ.</div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============= 10. CLOSING CTA + FOOTER ============= -->
+  <section class="closing">
+    <div class="wrap">
+      <h2>Your counter and your books — in one Lao app</h2>
+      <div class="cta-block">
+        <a class="btn btn-lg" href="/sabaiy-staging/signup/" data-cta="start-free" data-cta-location="closing">Start free</a>
+        <span class="cta-micro" style="color:rgba(255,255,255,.85)">Sign up yourself · No credit card needed</span>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="wrap">SabaiyERP — ຂາຍ, ຈັດການສາງ, ຍື່ນ VAT. ລາວແທ້, ເປັນເງິນກີບ.</div>
+  </footer>
+
+  <!-- Sticky one-CTA bar (mobile only) -->
+  <div class="sticky-cta">
+    <a class="btn" href="/sabaiy-staging/signup/" data-cta="start-free" data-cta-location="sticky">Start free</a>
+  </div>
+
+  <!-- ================= CONVERSION INSTRUMENTATION =================
+       AST-30 hard requirement: instrument the Start-free CTA as a
+       message-market conversion test. Vendor-neutral: pushes to
+       window.dataLayer (GTM/GA4) AND fires a first-party beacon so the
+       hypothesis "Lao merchants convert on one-app-for-counter+books"
+       is measurable regardless of the analytics vendor UX later picks. -->
+  <script>
+    (function () {
+      window.dataLayer = window.dataLayer || [];
+      function track(name, params) {
+        try { window.dataLayer.push(Object.assign({ event: name }, params || {})); } catch (e) {}
+        // First-party fallback beacon (endpoint wired at deploy; no-ops until then)
+        try {
+          if (navigator.sendBeacon && window.SABAIY_ANALYTICS_ENDPOINT) {
+            navigator.sendBeacon(window.SABAIY_ANALYTICS_ENDPOINT,
+              new Blob([JSON.stringify({ name: name, params: params, ts: Date.now(), path: location.pathname })], { type: "application/json" }));
+          }
+        } catch (e) {}
+      }
+      // Page view of the market test
+      track("landing_view", { experiment: "one-app-counter-books", locale: "en" });
+      // Every Start-free CTA click is the conversion signal
+      document.addEventListener("click", function (ev) {
+        var el = ev.target.closest("[data-cta='start-free']");
+        if (!el) return;
+        window._SABAIY_track_counter && window._SABAIY_track_counter('cta_start_free_click');
+        track("cta_start_free_click", {
+          location: el.getAttribute("data-cta-location") || "unknown",
+          experiment: "one-app-counter-books"
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

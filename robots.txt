@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://astromao.github.io/sabaiy-staging/sitemap.xml
